@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: assistant-mixtral
+    env: docker
+    plan: free
+    repo: https://github.com/Johnny9874/AssistantIA
+    branch: main
+    dockerfilePath: ./Dockerfile
