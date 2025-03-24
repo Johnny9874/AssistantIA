@@ -1,8 +1,9 @@
-# Utilise une image PHP + Apache officielle
+# Utilise une image PHP + Apache
 FROM php:8.2-apache
 
-# Copie tous les fichiers dans le dossier web de l'image Apache
+# Copie ton code dans le répertoire web d’Apache
 COPY public/ /var/www/html/
 
-# Active les modules Apache nécessaires (si besoin)
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Définir assistant.html comme page d'accueil
+RUN echo "DirectoryIndex assistant.html" > /etc/apache2/conf-available/custom-directory-index.conf \
+    && a2enconf custom-directory-index
