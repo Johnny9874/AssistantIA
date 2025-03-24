@@ -1,10 +1,10 @@
 FROM php:8.2-apache
 
-# Copie tous les fichiers dans le dossier web d’Apache
+# Copie les fichiers dans le dossier web d'Apache
 COPY public/ /var/www/html/
 
-# Fix permissions
+# Applique les bonnes permissions
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 
-# 🛠️ Remplace la directive DirectoryIndex pour pointer sur assistant.html
+# 🛠️ Définir assistant.html comme page d'accueil dans Apache
 RUN sed -i 's|DirectoryIndex .*|DirectoryIndex assistant.html|' /etc/apache2/mods-enabled/dir.conf
